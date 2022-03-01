@@ -34,13 +34,15 @@ let shakeCam = 0; // when something bad happen, the cameraman freaks out
 let font;
 
 // some plots to appreciate the beauty off not having to drive and thus be alive
-let angle_plt = new plot("angle", sx - 100, 100, -1, 1);
-let alt_plt   = new plot("altitude", sx - 100, 230, 0, sy);
-let drift_plt = new plot("drift", sx - 100, 360, 0, sx);
-let accuracy  = new plot("ap accuracy", sx - 100, 490, 0, 1);
+let angle_plt = new plot("angle", sx - 120, 100, -1, 1);
+let alt_plt   = new plot("altitude", sx - 120, 230, 0, sy);
+let drift_plt = new plot("drift", sx - 120, 360, 0, sx);
+let accuracy  = new plot("ap accuracy", sx - 120, 490, 0, 1);
 let plt = false;
 
-kaboom = new explosion; // YEAH, YOU READ THAT RIGHT
+let kaboom = new explosion; // YEAH, YOU READ THAT RIGHT
+
+let vig = vignette(50);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -104,7 +106,10 @@ function draw() {
         kaboom.draw();
         kaboom.update();
     }
-    
+
+    //background(255);
+    image(vig,0,0);
+
     
     if (plt == true) {
         angle_plt.draw(lander.angle, angle);
@@ -127,6 +132,8 @@ function draw() {
     
     pop();
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 // USER INPUTs
 function keyPressed() {

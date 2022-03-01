@@ -10,15 +10,16 @@ class stars {
         this.draw = function() {
             push();
             for (let i = 0; i < sy; i++) { // background
-                stroke(map(i, 0, sy, 50, 100));
+                stroke(map(i, 0, sy, 25, 100));
                 line(0, i, sx, i);
             }
             noStroke(); // stars
             fill(255);
-            for (let i = 0; i < this.nb_stars; i++) {
+
+            for (let i = 0; i < nb_stars; i++) {
                 circle(this.stars[i].x, this.stars[i].y, 1);
             }
-            
+
             fill(75); // planet
             circle(100, 100, 150);
             pop();
